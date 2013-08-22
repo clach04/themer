@@ -525,4 +525,4 @@ if __name__ == '__main__':
         generate(color_file, config_file, template_dir, theme_name)
 
         if options.activate or raw_input('Activate now? yN ') == 'y':
-            activate(theme_name
+            activate(theme_name)
