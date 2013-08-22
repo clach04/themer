@@ -11,7 +11,7 @@ Can generate themes from:
  
 Requires:
  
-- ~/.themer/templates/ directory w/one valid set of templates
+- ~/.config/themer/templates/ directory w/one valid set of templates
  
 Assumes:
  
@@ -47,7 +47,8 @@ DEFAULT_CONTEXT_CONFIG = {
     'secondary': 'green',
     'tertiary': 'blue',
 }
-THEMER_ROOT = os.path.join(os.environ['HOME'], '.themer')
+CONFIG_DIR = os.getenv('XDG_CONFIG_HOME', os.path.join(os.getenv('HOME'), '.config'))
+THEMER_ROOT = os.path.join(CONFIG_DIR, 'themer')
 TEMPLATE_ROOT = os.path.join(THEMER_ROOT, 'templates')
 
 def dict_update(parent, child):
