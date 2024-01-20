@@ -6,6 +6,14 @@ Python 2.x ONLY.
 
     pip install -r requirements.txt
 
+## Example
+
+### Windows Example
+
+
+    python themer.py --template=%CD%\sample_config --config=%CD%\sample_config\config.yaml generate my_theme YOUR_IMAGE.png
+
+
 ## TODO
 
     themer.py:75: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
