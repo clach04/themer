@@ -23,7 +23,13 @@ Then check (`XDG_CONFIG_HOME`) `%USERPROFILE%\.config\themer`, specifically `%US
 Python 3 support
 
 
-      File "..../themer.py", line 140, in <genexpr>
-        return '#%s' % ''.join(('%02x' % p for p in rgb))
-                                ~~~~~~~^~~
-    TypeError: %x format: an integer is required, not float
+      File "C:\code\py\color_themes\themer\themer.py", line 75, in read_config
+        data = yaml.load(fh)
+               ^^^^^^^^^^^^^
+    TypeError: load() missing 1 required positional argument: 'Loader'
+
+yaml fails for Python3, versus warning in Python2
+
+Partially python3 tested with:
+
+    MarkupSafe-2.1.4 jinja2-3.1.3 pillow-10.2.0 pyyaml-6.0.1
