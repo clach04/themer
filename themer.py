@@ -30,7 +30,11 @@ import random
 import re
 import shutil
 import sys
-import urllib2
+try:
+    import urllib2
+except ModuleNotFoundError:
+    #urllib2 = None
+    pass
 
 
 import yaml
