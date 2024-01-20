@@ -467,7 +467,7 @@ def get_parser():
     return parser
 
 def panic(msg):
-    print >> sys.stderr, msg
+    sys.stderr.write(msg + '\n')
     sys.exit(1)
 
 if __name__ == '__main__':
@@ -487,15 +487,15 @@ if __name__ == '__main__':
         themes = [
             t for t in os.listdir(THEMER_ROOT)
             if t not in ('templates', 'current')]
-        print '\n'.join(sorted(themes))
+        print('\n'.join(sorted(themes)))
         sys.exit(0)
     elif action == 'current':
         current = os.path.join(THEMER_ROOT, 'current')
         if not os.path.exists(current):
-            print 'No theme'
+            print('No theme')
         else:
-            print os.path.basename(os.path.realpath(
-                os.path.join(THEMER_ROOT, 'current')))
+            print(os.path.basename(os.path.realpath(
+                os.path.join(THEMER_ROOT, 'current'))))
             os.system('colortheme')
         sys.exit(0)
 
