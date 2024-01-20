@@ -137,7 +137,7 @@ def hex_to_rgb(h):
     return tuple(map(lambda n: int(n, 16), [h[i:i+2] for i in range(0, 6, 2)]))
 
 def rgb_to_hex(rgb):
-    return '#%s' % ''.join(('%02x' % p for p in rgb))
+    return '#%s' % ''.join(('%02x' % int(p) for p in rgb))  # int() floors, rather than rounds
 
 def create_wallpaper(colors, template_dir, w=1920, h=1200, filename='wallpaper.png'):
     rectangles = (
