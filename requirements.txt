@@ -1,0 +1,8 @@
+# pyyaml 5.4.1
+pyyaml
+
+# jinja2-2.11.3 MarkupSafe-1.1.1
+jinja2
+
+# pillow-6.2.2
+pillow
