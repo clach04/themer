@@ -11,6 +11,7 @@ Python 2.x ONLY.
 ### Windows Example
 
 
+    set XDG_CONFIG_HOME=%CD%\sample_config
     python themer.py --template=%CD%\sample_config --config=%CD%\sample_config\config.yaml generate my_theme YOUR_IMAGE.png
 
 Then check (`XDG_CONFIG_HOME`) `%USERPROFILE%\.config\themer`, specifically `%USERPROFILE%\.config\themer\my_theme`.

@@ -59,7 +59,7 @@ TEMPLATE_ROOT = os.path.join(THEMER_ROOT, 'templates')
 
 def dict_update(parent, child):
     """Recursively update parent dict with child dict."""
-    for key, value in child.iteritems():
+    for key, value in child.items():
         if key in parent and isinstance(parent[key], dict):
             parent[key] = dict_update(parent[key], value)
         else:
