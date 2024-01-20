@@ -72,7 +72,7 @@ def read_config(config_file):
     config_dir = os.path.dirname(config_file)
     base_config = {}
     with open(config_file) as fh:
-        data = yaml.load(fh)
+        data = yaml.safe_load(fh)
 
     if data.get('extends'):
         parent_config = os.path.join(config_dir, data['extends'])

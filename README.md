@@ -17,18 +17,13 @@ Then check (`XDG_CONFIG_HOME`) `%USERPROFILE%\.config\themer`, specifically `%US
 
 ## TODO
 
-    themer.py:75: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
-      data = yaml.load(fh)
-
 Python 3 support
 
 
-      File "C:\code\py\color_themes\themer\themer.py", line 75, in read_config
-        data = yaml.load(fh)
-               ^^^^^^^^^^^^^
-    TypeError: load() missing 1 required positional argument: 'Loader'
-
-yaml fails for Python3, versus warning in Python2
+      File "themer.py", line 62, in dict_update
+        for key, value in child.iteritems():
+                          ^^^^^^^^^^^^^^^
+    AttributeError: 'dict' object has no attribute 'iteritems'
 
 Partially python3 tested with:
 
