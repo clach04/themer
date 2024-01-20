@@ -47,7 +47,7 @@ DEFAULT_CONTEXT_CONFIG = {
     'secondary': 'green',
     'tertiary': 'blue',
 }
-CONFIG_DIR = os.getenv('XDG_CONFIG_HOME', os.path.join(os.getenv('HOME'), '.config'))
+CONFIG_DIR = os.getenv('XDG_CONFIG_HOME', os.path.join(os.getenv('HOME', os.getenv('USERPROFILE')), '.config'))
 THEMER_ROOT = os.path.join(CONFIG_DIR, 'themer')
 TEMPLATE_ROOT = os.path.join(THEMER_ROOT, 'templates')
 
