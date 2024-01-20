@@ -228,7 +228,7 @@ def generate(color_source, config_file, template_dir, theme_name):
 
 class ColorParser(object):
     # Colors look something like "*color0:  #FF0d3c\n"
-    color_re = re.compile('.*?(color[^:]+|background|foreground):\s*(#[\da-z]{6})')
+    color_re = re.compile(r'.*?(color[^:]+|background|foreground):\s*(#[\da-z]{6})')
 
     def __init__(self, color_file):
         self.color_file = color_file
@@ -429,7 +429,7 @@ class IconUpdater(object):
         return os.path.join(self.icon_path(), 'scalable/actions/add.svg')
 
     def extract_color_svg(self, filename):
-        regex = re.compile('stop-color:(#[\da-zA-Z]{6})')
+        regex = re.compile(r'stop-color:(#[\da-zA-Z]{6})')
         with open(filename, 'r') as fh:
             for line in fh.readlines():
                 match_obj = regex.search(line)
