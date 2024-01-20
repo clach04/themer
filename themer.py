@@ -47,6 +47,12 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
+try:
+    raw_input
+except NameError:
+    # Python 3
+    raw_input = input
+
 
 DEFAULT_CONTEXT_CONFIG = {
     'primary': 'magenta',
@@ -93,7 +99,7 @@ def render_templates(template_dir, files, context):
         if src.endswith(('tpl', 'conf')):
             logger.info('Writing %s -> %s' % (src, dest))
             template = env.get_template(src)
-            with open(dest, 'w') as fh:
+            with open(dest, 'wb') as fh:
                 fh.write(template.render(**context).encode('utf-8'))
         else:
             logger.info('Copying %s -> %s' % (src, dest))
