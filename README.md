@@ -12,7 +12,7 @@ Python 3.x and 2.x support.
 
 
     set XDG_CONFIG_HOME=%CD%\sample_config
-    python themer.py --template=%CD%\sample_config --config=%CD%\sample_config\config.yaml generate my_theme YOUR_IMAGE.png
+    python themer.py --template=%XDG_CONFIG_HOME% --config=%XDG_CONFIG_HOME%\config.yaml generate my_theme C:\code\putty_themes\screenshots\farmhouse_dark.png
 
 Then check (`XDG_CONFIG_HOME`) `%USERPROFILE%\.config\themer`, specifically `%USERPROFILE%\.config\themer\my_theme`.
 
