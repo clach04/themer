@@ -1,4 +1,4 @@
-{# belongs in .themer/templates/i3/xresources.tpl
+{# belongs in .themer/templates/i3/xresources.tpl #}
 *faceName: {{ fontName.title() }}
 *faceSize: {{ fontSize }}
 *font: xft:{{ fontName.title() }}:{{ fontSize }}
