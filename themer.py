@@ -472,6 +472,7 @@ def get_parser():
     parser.add_option('-t', '--template', dest='template_dir', default='i3')
     parser.add_option('-c', '--config', dest='config_file', default='config.yaml')
     parser.add_option('-a', '--activate', dest='activate', action='store_true')
+    parser.add_option('-n', '--noactivate', dest='activate', action='store_false')
     parser.add_option('-v', '--verbose', dest='verbose', action='store_true')
     parser.add_option('-d', '--debug', dest='debug', action='store_true')
     return parser
@@ -537,5 +538,8 @@ if __name__ == '__main__':
 
         generate(color_file, config_file, template_dir, theme_name)
 
-        if options.activate or raw_input('Activate now? yN ') == 'y':
+        if options.activate is None:
+            options.activate = raw_input('Activate now? yN ') == 'y'
+        if options.activate:
             activate(theme_name)
+
