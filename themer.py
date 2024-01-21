@@ -120,6 +120,57 @@ def munge_context(variables, colors):
         if key not in context:
             context[key] = context[value]
 
+    # terminal colors, Putty variable/template names - see https://github.com/clach04/terminal_style_toolkit
+    # NOTE Jinja does NOT allow hypens but does allow underscore
+    # TODO transparency?
+    context["Colour0-hex"] = context['foreground']  # Default Foreground
+    #context["Colour1-hex"] = context['REPLACEME']  # Default Bold Foreground  -- equals to non-bold
+    context["Colour1-hex"] = context['Colour0-hex']  # FIXME Default Bold Foreground  -- equals to non-bold
+    context["Colour2-hex"] = context['background']  # Default Background
+    #context["Colour3-hex"] = context['REPLACEME']  # Default Bold Background  -- equals to non-bold
+    context["Colour3-hex"] = context['Colour2-hex']  # FIXME Default Bold Background  -- equals to non-bold
+    #context["Colour4-hex"] = context['REPLACEME']  # Cursor Text -- equals to default background
+    #context["Colour5-hex"] = context['REPLACEME']  # Cursor Colour -- equals to default foreground
+    context["Colour4-hex"] = context['Colour2-hex']  # Cursor Text -- equals to default background
+    context["Colour5-hex"] = context['Colour0-hex']  # FIXME? Cursor Colour -- equals to default foreground
+    context["Colour6-hex"] = context['black']  # ANSI Black, 30m
+    context["Colour7-hex"] = context['alt_black']  # ANSI Black Bright, 1;30m
+    context["Colour8-hex"] = context['red']  #
+    context["Colour9-hex"] = context['alt_red']  #
+    context["Colour10-hex"] = context['green']  #
+    context["Colour11-hex"] = context['alt_green']  #
+    context["Colour12-hex"] = context['yellow']  #
+    context["Colour13-hex"] = context['alt_yellow']  #
+    context["Colour14-hex"] = context['blue']  #
+    context["Colour15-hex"] = context['alt_blue']  #
+    context["Colour16-hex"] = context['magenta']  #
+    context["Colour17-hex"] = context['alt_magenta']  #
+    context["Colour18-hex"] = context['cyan']  #
+    context["Colour19-hex"] = context['alt_cyan']  #
+    context["Colour20-hex"] = context['white']  #
+    context["Colour21-hex"] = context['alt_white']  #
+
+    # clean up # prefix, set individual rgb decimal
+    #for counter in range(21+1):
+    #    color_name = 'Colour%d' % counter
+    for color_name in list(context.keys()):
+        if color_name.startswith('Colour') and color_name.endswith('-hex'):
+            rgb_hex = context[color_name]
+            rgb_hex = rgb_hex.replace('#', '')  # remove (leading) #, using .replace() rather than index slicing to handle possibility of missing '#'
+            # deal with dumb Jina naming restrictions, no hypens allowed :-(
+            context[color_name.replace('-', '_')] = context[color_name] = rgb_hex
+            # TODO look into using hex_to_rgb()
+            color_name_sans_hex = color_name.replace('-hex', '')
+            temp_r, temp_g, temp_b = rgb_hex[0:2], rgb_hex[2:4], rgb_hex[4:6]
+            #temp_r = int(temp_r, 16)
+            #temp_g = int(temp_g, 16)
+            #temp_b = int(temp_b, 16)
+            # deal with dumb Jina naming restrictions, no hypens allowed :-(
+            context[color_name_sans_hex + '_rgb_r'] = context[color_name_sans_hex + '-rgb-r'] = int(temp_r, 16)
+            context[color_name_sans_hex + '_rgb_g'] = context[color_name_sans_hex + '-rgb-g'] = int(temp_g, 16)
+            context[color_name_sans_hex + '_rgb_b'] = context[color_name_sans_hex + '-rgb-b'] = int(temp_b, 16)
+    context["scheme_name"] = context["scheme-name"] = 'themer_generated'  # FIXME use the actual theme name, not present in variables :-(
+
     return context
 
 def wallfix(directory, colors):

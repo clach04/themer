@@ -13,3 +13,4 @@ files:
   index.tpl: index.html
   i3status.tpl: i3status.conf
   i3.tpl: i3.conf
+  putty.tpl: putty.reg
