@@ -14,6 +14,8 @@ Python 3.x and 2.x support.
     set XDG_CONFIG_HOME=%CD%\sample_config
     python themer.py --template=%XDG_CONFIG_HOME% --config=%XDG_CONFIG_HOME%\config.yaml generate my_theme YOUR_IMAGE.png
 
+    python themer.py -n --template=%XDG_CONFIG_HOME% --config=%XDG_CONFIG_HOME%\config.yaml generate my_theme sample_config\sample_colors.yaml
+
 Then check (`XDG_CONFIG_HOME`) `%USERPROFILE%\.config\themer`, specifically `%USERPROFILE%\.config\themer\my_theme`.
 
 ## Python 3 support
