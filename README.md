@@ -8,8 +8,14 @@ Python 3.x and 2.x support.
 
 ## Example
 
-### Windows Example
+### Linux Example
 
+    export XDG_CONFIG_HOME=$PWD/sample_config
+    python themer.py -n --template=$XDG_CONFIG_HOME  --config=$XDG_CONFIG_HOME/config.yaml generate my_theme sample_config/sample_colors.yaml
+    ls sample_config/themer/my_theme/
+
+
+### Windows Example
 
     set XDG_CONFIG_HOME=%CD%\sample_config
     python themer.py --template=%XDG_CONFIG_HOME% --config=%XDG_CONFIG_HOME%\config.yaml generate my_theme YOUR_IMAGE.png
@@ -23,3 +29,4 @@ Then check (`XDG_CONFIG_HOME`) `%USERPROFILE%\.config\themer`, specifically `%US
 Tested with:
 
     MarkupSafe-2.1.4 jinja2-3.1.3 pillow-10.2.0 pyyaml-6.0.1
+
