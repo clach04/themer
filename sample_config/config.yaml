@@ -14,3 +14,4 @@ files:
   i3status.tpl: i3status.conf
   i3.tpl: i3.conf
   putty.tpl: putty.reg
+  colortable_html.tpl: colortable.html
