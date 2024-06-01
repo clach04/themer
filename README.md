@@ -1,5 +1,6 @@
 ## Charles Leifer's Themer
 
+k-means pure python script for extracting a color pallet from images.
 For more details see https://charlesleifer.com/blog/using-python-to-generate-awesome-linux-desktop-themes/
 
 Python 3.x and 2.x support.
@@ -29,4 +30,9 @@ Then check (`XDG_CONFIG_HOME`) `%USERPROFILE%\.config\themer`, specifically `%US
 Tested with:
 
     MarkupSafe-2.1.4 jinja2-3.1.3 pillow-10.2.0 pyyaml-6.0.1
+
+
+------
+
+checkout https://www.deviantart.com/pobtott/art/Any-Color-You-Like-175624910 avg icon theme.
 
